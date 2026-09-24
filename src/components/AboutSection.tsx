@@ -15,6 +15,13 @@ export const AboutSection: React.FC = () => {
                 alt="Bride of Fried Chicken and Pizza culinary spread in Civil Lines Jhang"
                 className="w-full aspect-[4/3] object-cover object-center"
                 loading="lazy"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.dataset.triedFallback) {
+                    target.dataset.triedFallback = 'true';
+                    target.src = BUSINESS_INFO.heroFallback;
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#180f0d] via-transparent to-transparent opacity-80" />
 

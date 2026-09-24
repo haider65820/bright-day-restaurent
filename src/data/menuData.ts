@@ -1,3 +1,21 @@
+import heroVarietySpreadImg from '../assets/images/hero_variety_spread.jpg';
+import dishBdPizzaImg from '../assets/images/dish_bd_pizza.jpg';
+import dishTowerBurgerImg from '../assets/images/dish_tower_burger.jpg';
+import dishCrispyChickenImg from '../assets/images/dish_crispy_chicken.jpg';
+import beverageGelatoShakeImg from '../assets/images/beverage_gelato_shake.jpg';
+import customerPanPizzaImg from '../assets/images/customer_pan_pizza.jpg';
+import guestsDiningJhangImg from '../assets/images/guests_dining_jhang.jpg';
+
+export const FALLBACK_IMAGES = {
+  hero: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=85',
+  pizza: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=85',
+  burger: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85',
+  chicken: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1000&q=85',
+  pasta: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1000&q=85',
+  shake: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=1000&q=85',
+  dining: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85',
+};
+
 export interface PizzaPrice {
   s?: number;
   m?: number;
@@ -10,8 +28,10 @@ export interface MenuItem {
   category: string;
   description?: string;
   price?: number; // For non-pizza or single price items
+  priceLabel?: string;
   pizzaPrices?: PizzaPrice; // For pizza items
   image?: string;
+  fallbackImage?: string;
   isSignature?: boolean;
   isPopular?: boolean;
 }
@@ -928,7 +948,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
   },
 ];
 
-export const SIGNATURE_PICKS = [
+export const SIGNATURE_PICKS: MenuItem[] = [
   {
     id: 'pizza-bd-special',
     name: 'B.D Special Pizza',
@@ -936,7 +956,8 @@ export const SIGNATURE_PICKS = [
     description: 'House centerpiece loaded with spiced chicken, smoked sausages, olives, and signature secret sauce.',
     priceLabel: 'From Rs. 469',
     pizzaPrices: { s: 469, m: 1200, l: 1550 },
-    image: '/src/assets/images/dish_bd_pizza_1790184515143.jpg',
+    image: dishBdPizzaImg,
+    fallbackImage: FALLBACK_IMAGES.pizza,
   },
   {
     id: 'pizza-special-kofta',
@@ -945,7 +966,8 @@ export const SIGNATURE_PICKS = [
     description: 'Premium spiced Pakistani kofta meatballs, rich tomato-masala base, and double mozzarella.',
     priceLabel: 'M: Rs. 1,590 / L: Rs. 1,990',
     pizzaPrices: { m: 1590, l: 1990 },
-    image: '/src/assets/images/dish_bd_pizza_1790184515143.jpg',
+    image: dishBdPizzaImg,
+    fallbackImage: FALLBACK_IMAGES.pizza,
   },
   {
     id: 'burger-bd-special-zinger',
@@ -954,7 +976,8 @@ export const SIGNATURE_PICKS = [
     description: 'Ultimate double-stacked crispy chicken zinger burger, melted cheese, and secret house sauce.',
     priceLabel: 'Rs. 899',
     price: 899,
-    image: '/src/assets/images/dish_tower_burger_1790184547137.jpg',
+    image: dishTowerBurgerImg,
+    fallbackImage: FALLBACK_IMAGES.burger,
   },
   {
     id: 'fc-fried-chargha',
@@ -963,7 +986,8 @@ export const SIGNATURE_PICKS = [
     description: 'Whole Pakistani spiced chicken deep fried to crackling golden perfection, juicy inside with lemon.',
     priceLabel: 'Rs. 1,699',
     price: 1699,
-    image: '/src/assets/images/dish_crispy_chicken_1790184533384.jpg',
+    image: dishCrispyChickenImg,
+    fallbackImage: FALLBACK_IMAGES.chicken,
   },
   {
     id: 'pasta-malai-boti',
@@ -972,7 +996,8 @@ export const SIGNATURE_PICKS = [
     description: 'Charcoal-roasted malai boti chicken chunks simmered in decadent rich cream and cheese with garlic bread.',
     priceLabel: 'Rs. 649',
     price: 649,
-    image: '/src/assets/images/hero_variety_spread_1790184500434.jpg',
+    image: heroVarietySpreadImg,
+    fallbackImage: FALLBACK_IMAGES.pasta,
   },
   {
     id: 'shake-choco-ferrero',
@@ -981,7 +1006,8 @@ export const SIGNATURE_PICKS = [
     description: 'Indulgent blend of Ferrero Rocher pralines, hazelnut gelato, and whipped topping.',
     priceLabel: 'Rs. 399',
     price: 399,
-    image: '/src/assets/images/beverage_gelato_shake_1790184564996.jpg',
+    image: beverageGelatoShakeImg,
+    fallbackImage: FALLBACK_IMAGES.shake,
   },
 ];
 
@@ -1000,9 +1026,12 @@ export const BUSINESS_INFO = {
   whatsappNumber: '+923000000000',
   googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Bright+Day+Fried+chicken+and+Pizza+Civil+Lines+SSP+Rd+Civil+Lines+Jhang+35200+Pakistan',
   currency: 'Rs.',
-  heroImage: '/src/assets/images/hero_variety_spread_1790184500434.jpg',
-  panPizzaImage: '/src/assets/images/customer_pan_pizza_1790185341319.jpg',
-  diningGuestsImage: '/src/assets/images/guests_dining_jhang_1790185355458.jpg',
+  heroImage: heroVarietySpreadImg,
+  heroFallback: FALLBACK_IMAGES.hero,
+  panPizzaImage: customerPanPizzaImg,
+  panPizzaFallback: FALLBACK_IMAGES.pizza,
+  diningGuestsImage: guestsDiningJhangImg,
+  diningGuestsFallback: FALLBACK_IMAGES.dining,
 };
 
 export const AUTHENTIC_REVIEWS = [
@@ -1059,7 +1088,8 @@ export const AUTHENTIC_REVIEWS = [
 export const DINING_MOMENTS = [
   {
     id: 'moment-1',
-    image: '/src/assets/images/customer_pan_pizza_1790185341319.jpg',
+    image: customerPanPizzaImg,
+    fallbackImage: FALLBACK_IMAGES.pizza,
     title: 'Oven-Hot Deep Pan Pizza',
     subtitle: 'Melted Mozzarella & Signature Spices',
     caption: 'Served sizzling in our signature iron pan with rich cheese pull, juicy chicken chunks, olives and chilli garlic dip right on the dining table.',
@@ -1067,7 +1097,8 @@ export const DINING_MOMENTS = [
   },
   {
     id: 'moment-2',
-    image: '/src/assets/images/guests_dining_jhang_1790185355458.jpg',
+    image: guestsDiningJhangImg,
+    fallbackImage: FALLBACK_IMAGES.dining,
     title: 'Heartfelt Hospitality & Celebrations',
     subtitle: 'Family & Friends Gathering in Jhang',
     caption: 'Warm memories created daily over hot pizza, crispy broast chicken, and iced gelato shakes in our comfortable Civil Lines dining hall.',

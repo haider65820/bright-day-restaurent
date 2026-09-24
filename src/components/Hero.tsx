@@ -13,9 +13,16 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu, onOrderOnline }) => {
       {/* Background Image with Warm Amber & Espresso Scrim Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/hero_variety_spread_1790184500434.jpg"
+          src={BUSINESS_INFO.heroImage}
           alt="Bride of Fried Chicken and Pizza feast spread in Civil Lines Jhang"
           className="w-full h-full object-cover object-center scale-105 transform duration-1000"
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (!target.dataset.triedFallback) {
+              target.dataset.triedFallback = 'true';
+              target.src = BUSINESS_INFO.heroFallback;
+            }
+          }}
         />
         {/* Warm appetizing gradient scrims (rich espresso & spiced terracotta undertones) */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#221512] via-[#180f0d]/80 to-[#120a09]/90" />

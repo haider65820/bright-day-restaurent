@@ -37,6 +37,13 @@ export const RealDiningMoments: React.FC = () => {
                 alt="Freshly baked pan pizza with mozzarella cheese pull at Bright Day Fried chicken and Pizza in Civil Lines Jhang"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.dataset.triedFallback) {
+                    target.dataset.triedFallback = 'true';
+                    target.src = BUSINESS_INFO.panPizzaFallback;
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1e1311] via-black/30 to-transparent" />
 
@@ -84,6 +91,13 @@ export const RealDiningMoments: React.FC = () => {
                 alt="Friends and family dining together at Bright Day Fried chicken and Pizza restaurant in Civil Lines Jhang"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.dataset.triedFallback) {
+                    target.dataset.triedFallback = 'true';
+                    target.src = BUSINESS_INFO.diningGuestsFallback;
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1e1311] via-black/30 to-transparent" />
 

@@ -56,6 +56,13 @@ export const FeaturedMenu: React.FC<FeaturedMenuProps> = ({
                     alt={item.name}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedFallback && item.fallbackImage) {
+                        target.dataset.triedFallback = 'true';
+                        target.src = item.fallbackImage;
+                      }
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#201412] via-transparent to-transparent opacity-80" />
 
