@@ -1,0 +1,6 @@
+{
+  "name": "Variety Fried Chicken & Pizza",
+  "description": "Variety Fried Chicken & Pizza (Variety Brightday) - Premium pizza, crispy fried chicken, burgers, pasta, rolls, gelato shakes and mocktails in Civil Lines, Jhang. Call 0477-625333 to order.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
